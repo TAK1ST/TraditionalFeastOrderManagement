@@ -4,12 +4,15 @@
  */
 package Presentation;
 
+import Presentation.UI.CustomerUI;
+
+
 /**
  *
  * @author asus
  */
 public class Menu {
-
+    private static final CustomerUI customerUI  = new CustomerUI();
     public static void displayMenu() {
         System.out.println("A Management System for Traditional Feast Orders");
         System.out.println("1. Register customers");
@@ -28,6 +31,7 @@ public class Menu {
     public static boolean handleChoice(int choice) throws Exception {
         switch (choice) {
             case 1:
+                customerUI.registerCustomer();
                 break;
             case 2:
                 break;

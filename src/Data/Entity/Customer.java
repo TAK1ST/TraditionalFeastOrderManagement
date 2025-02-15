@@ -4,24 +4,27 @@
  */
 package Data.Entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author asus
  */
-public class Customer {
+public class Customer implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String customerCode;
     private String customerName;
-    private int phoneNumber;
-    private String Email;
+    private String phoneNumber;
+    private String email;
 
     public Customer() {
     }
 
-    public Customer(String customerCode, String customerName, int phoneNumber, String Email) {
+    public Customer(String customerCode, String customerName, String phoneNumber, String email) {
         this.customerCode = customerCode;
         this.customerName = customerName;
         this.phoneNumber = phoneNumber;
-        this.Email = Email;
+        this.email = email;
     }
 
     public String getCustomerCode() {
@@ -40,19 +43,27 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    //using Override toString to show data in this, avoid print hashcode from Object.
+    @Override
+    public String toString() {
+        return "customerCode=" + customerCode 
+                + ", customerName=" + customerName 
+                + ", phoneNumber=" + phoneNumber 
+                + ", email=" + email + '}';
     }
 }

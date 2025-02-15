@@ -4,17 +4,22 @@
  */
 package Presentation;
 
-import Utils.DataInput;
-import static Utils.StartUtils.start;
+import Data.CustomerDao.CustomerDAO;
+import Data.Entity.Customer;
+import Presentation.UI.CustomerUI;
+import static Util.StartUtils.start;
 
 /**
  *
  * @author asus
  */
+
 public class Program {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception 
+    {
         start();
+        CustomerDAO customerDAO = new CustomerDAO();
+        System.out.println(customerDAO.getAllCustomers());
     }
-    
 }

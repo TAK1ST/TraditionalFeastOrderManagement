@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Utils;
+package Util;
 
 import static Constant.Regex.REGEX_NUMBER;
+import Validator.CustomerValidator;
 import java.util.Scanner;
 
 /**
@@ -52,14 +53,21 @@ public class DataInput {
         s = sc.nextLine();
         return s;
     }
-}
 
-//    public static Date getDate(String displayMessage) {
-//        System.out.print(displayMessage);
-//        String dateString = sc.nextLine();
-//        try {
-//            return dateFormat.parse(dateString);
-//        } catch (ParseException e) {
-//            return null;
+//    public static String getInput(String prompt, CustomerValidator customerValidator, String error) {
+//        String input;
+//        while (true) {
+//            System.out.print(prompt);
+//            input = getString();
+//            if (customerValidator.validCustomerCode(customer.getCustomerCode())
+//                    && customerValidator.validCustomerName(customer.getCustomerName())
+//                    && customerValidator.validPhone(customer.getPhoneNumber())
+//                    && customerValidator.validEmail(customer.getEmail())) {
+//                break;
+//            } else {
+//                System.out.println(error);
+//            }
 //        }
+//        return input;
 //    }
+}
