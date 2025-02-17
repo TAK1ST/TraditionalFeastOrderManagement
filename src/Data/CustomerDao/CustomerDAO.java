@@ -40,4 +40,13 @@ public class CustomerDAO {
         customerManager.writeToFile();
     }
 
+    public boolean updateCustomer(Customer customer) {
+        for (int i = 0; i < customerManager.getObjects().size(); i++) {
+            if (getAllCustomers().get(i).getCustomerCode().equals(customer.getCustomerCode())) {
+                getAllCustomers().set(i, customer);
+                return true;
+            }
+        }
+        return false;
+    }
 }

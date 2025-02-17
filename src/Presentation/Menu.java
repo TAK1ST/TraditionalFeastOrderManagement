@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Data.CustomerDao.CustomerDAO;
 import Presentation.UI.CustomerUI;
 
 
@@ -13,6 +14,7 @@ import Presentation.UI.CustomerUI;
  */
 public class Menu {
     private static final CustomerUI customerUI  = new CustomerUI();
+
     public static void displayMenu() {
         System.out.println("A Management System for Traditional Feast Orders");
         System.out.println("1. Register customers");
@@ -32,10 +34,13 @@ public class Menu {
         switch (choice) {
             case 1:
                 customerUI.registerCustomer();
+                customerUI.saveCustomers();
                 break;
             case 2:
+                customerUI.updateCustomer();
                 break;
             case 3:
+                customerUI.findCustomerByCode();
                 break;
             case 4:
                 break;
@@ -46,6 +51,7 @@ public class Menu {
             case 7:
                 break;
             case 8:
+                customerUI.saveCustomers();
                 break;
             case 9:
                 System.out.println("Good bye");

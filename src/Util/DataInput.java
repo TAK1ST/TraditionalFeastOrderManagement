@@ -21,7 +21,7 @@ public class DataInput {
         String s;
         System.out.print(displayMessage);
         try {
-            s = sc.next();
+            s = sc.nextLine();
             number = Integer.parseInt(s);
         } catch (NumberFormatException ex) {
             System.out.println("Data invalid.");
@@ -52,8 +52,7 @@ public class DataInput {
         String s;
         s = sc.nextLine();
         return s;
-    }
-
+    }   
 //    public static String getInput(String prompt, CustomerValidator customerValidator, String error) {
 //        String input;
 //        while (true) {

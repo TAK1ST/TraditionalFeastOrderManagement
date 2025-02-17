@@ -7,6 +7,7 @@ package Application.Service;
 import Data.CustomerDao.CustomerDAO;
 import Data.Entity.Customer;
 import Validator.CustomerValidator;
+import javax.xml.bind.Validator;
 
 /**
  *
@@ -23,8 +24,7 @@ public class CustomerService {
     }
 
     public boolean addNew(Customer customer) {
-        if (customerValidator.validCustomerCode(customer.getCustomerCode())
-                && customerValidator.validCustomerName(customer.getCustomerName())
+        if (customerValidator.validCustomerName(customer.getCustomerName())
                 && customerValidator.validPhone(customer.getPhoneNumber())
                 && customerValidator.validEmail(customer.getEmail())) {
             return customerDAO.addCustomer(customer);
@@ -32,4 +32,15 @@ public class CustomerService {
         return false;
     }
 
+    public Customer findCustomerByCode(String code) {
+        return customerDAO.findCustomerByCode(code);
+    }
+
+    public boolean updateCustomer(Customer cus) {
+        return customerDAO.updateCustomer(cus);
+    }
+
+    public void saveCustomersData() {
+        customerDAO.saveCustomers();
+    }
 }

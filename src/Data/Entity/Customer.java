@@ -4,13 +4,16 @@
  */
 package Data.Entity;
 
+import Util.DataInput;
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  *
  * @author asus
  */
-public class Customer implements Serializable{
+public class Customer implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private String customerCode;
     private String customerName;
@@ -28,7 +31,7 @@ public class Customer implements Serializable{
     }
 
     public String getCustomerCode() {
-        return customerCode;
+        return customerCode.toUpperCase();
     }
 
     public void setCustomerCode(String customerCode) {
@@ -58,12 +61,13 @@ public class Customer implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    //using Override toString to show data in this, avoid print hashcode from Object.
+
+//using Override toString to show data in this, avoid print hashcode from Object.
     @Override
     public String toString() {
-        return "customerCode=" + customerCode 
-                + ", customerName=" + customerName 
-                + ", phoneNumber=" + phoneNumber 
+        return "customerCode=" + customerCode
+                + ", customerName=" + customerName
+                + ", phoneNumber=" + phoneNumber
                 + ", email=" + email + '}';
     }
 }
