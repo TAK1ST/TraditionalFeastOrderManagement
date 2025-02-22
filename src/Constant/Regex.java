@@ -12,8 +12,10 @@ public class Regex {
 
     //regex for customer
     public static final String REGEX_NUMBER = "\\d+";
+    public static final String REGEX_CUSTOMER_CODE = "^[CGK]\\d{3}$";
     public static final String REGEX_PHONENUMBER = "^(09|03|07|08|05)\\d{8}$";
     public static final String REGEX_CUSTOMER_NAME = "^.{2,25}$";
+    public static final String REGEX_FEAST_CODE= "^PW\\d{3}$";
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
 }

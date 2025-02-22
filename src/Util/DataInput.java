@@ -4,8 +4,12 @@
  */
 package Util;
 
+import static Constant.DateFormat.formatter;
 import static Constant.Regex.REGEX_NUMBER;
-import Validator.CustomerValidator;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -52,21 +56,38 @@ public class DataInput {
         String s;
         s = sc.nextLine();
         return s;
-    }   
-//    public static String getInput(String prompt, CustomerValidator customerValidator, String error) {
-//        String input;
-//        while (true) {
-//            System.out.print(prompt);
-//            input = getString();
-//            if (customerValidator.validCustomerCode(customer.getCustomerCode())
-//                    && customerValidator.validCustomerName(customer.getCustomerName())
-//                    && customerValidator.validPhone(customer.getPhoneNumber())
-//                    && customerValidator.validEmail(customer.getEmail())) {
-//                break;
-//            } else {
-//                System.out.println(error);
-//            }
-//        }
-//        return input;
-//    }
+    }
+
+    public static LocalDate getDate() {
+        while (true) {
+            String dateString = sc.nextLine();
+            try {
+                return LocalDate.parse(dateString, formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please try again.");
+            }
+        }
+    }
+    public static LocalDate getDateNotLoop() {
+        while (true) {
+            String dateString = sc.nextLine();
+            try {
+                return LocalDate.parse(dateString, formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please try again.");
+            }
+        }
+    }
+
+    public static LocalDate getDate(String displayMessage) {
+        System.out.print(displayMessage);
+        while (true) {
+            String dateString = sc.nextLine();
+            try {
+                return LocalDate.parse(dateString, formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please try again.");
+            }
+        }
+    }
 }

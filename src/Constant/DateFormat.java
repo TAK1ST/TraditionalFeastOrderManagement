@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Data.FeastMenuDAO;
+package Constant;
+
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author asus
  */
-public class feastMenuDAO {
-    
+public class DateFormat {
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 }

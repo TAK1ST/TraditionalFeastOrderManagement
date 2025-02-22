@@ -12,11 +12,14 @@ import java.io.IOException;
  */
 public class HandleException {
 
+    public static void handleException(String message, Exception e) {
+        System.err.println(message + e.getMessage());
+        e.printStackTrace();
+    }
     public static void handleIOException(String message, IOException e) {
         System.err.println(message + e.getMessage());
         e.printStackTrace();
     }
-
     public static void handleClassNotFoundException(String message, ClassNotFoundException e) {
         System.err.println(message + e.getMessage());
         e.printStackTrace();

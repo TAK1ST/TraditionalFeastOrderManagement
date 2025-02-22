@@ -15,9 +15,8 @@ public class StartUtils {
     public static void start() throws Exception {
         boolean running = true;
         while (running) {
-            // use try can implement try again, limit avoid throw exception in getIntegerNumber.
             try {
-            Menu.displayMenu();
+            Menu.displayMainMenu();
             int option = DataInput.getIntegerNumber();
             running = Menu.handleChoice(option);
             }  catch(NumberFormatException e)

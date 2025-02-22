@@ -5,7 +5,6 @@
 package Presentation.UI;
 
 import Application.Service.CustomerService;
-import Data.CustomerDao.CustomerDAO;
 import Data.Entity.Customer;
 import Util.DataInput;
 import Validator.CustomerValidator;

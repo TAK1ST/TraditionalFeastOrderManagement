@@ -1,11 +1,15 @@
 package Validator;
 
+import static Constant.Regex.REGEX_CUSTOMER_CODE;
 import static Constant.Regex.REGEX_CUSTOMER_NAME;
 import static Constant.Regex.REGEX_EMAIL;
 import static Constant.Regex.REGEX_PHONENUMBER;
-import Data.CustomerDao.CustomerDAO;
+import Data.DAO.CustomerDAO;
 import Data.Entity.Customer;
+import Data.File.FileManagement;
 import Util.DataInput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /*
@@ -18,19 +22,10 @@ import java.util.Random;
  */
 public class CustomerValidator {
     CustomerDAO customerDAO = new CustomerDAO();
-
-
-//    public boolean validCustomerCode(String customerCode) {
-//        if (checkCustomerCodeValid(customerCode)) {
-//            System.out.println("Customer existed.");
-//            return false;
-//        }
-//        return true;
-//    }
-//    
-//    private boolean checkCustomerCodeValid(String customerCode) {
-//        return customerDAO.findCustomerByCode(customerCode).getCustomerCode().equalsIgnoreCase(customerCode);
-//    }
+    public boolean validCustomerCode(String customerCode) {
+        return customerCode != null && !customerCode.trim().isEmpty()
+                && customerCode.matches(REGEX_CUSTOMER_CODE);
+    }
 
     public boolean validCustomerName(String customerName) {
         return customerName != null && !customerName.trim().isEmpty()
@@ -42,6 +37,7 @@ public class CustomerValidator {
                 && phone.matches(REGEX_PHONENUMBER);
     }
 
+     
     public boolean validEmail(String email) {
         return email != null && !email.trim().isEmpty()
                 && email.matches(REGEX_EMAIL);
@@ -77,7 +73,15 @@ public class CustomerValidator {
 
     public String autoGenerateCustomerCode() {
         String generateCode;
+        do {
         Random random = new Random();
-        return generateCode = getFirstCharCustomerCode() + String.format("%03d", random.nextInt(1000));
+        generateCode = getFirstCharCustomerCode() + String.format("%03d", random.nextInt(1000));
+        } while (checkExistCode(generateCode));
+        return generateCode;
     }
+    
+    public boolean checkExistCode(String code)
+    {
+        return customerDAO.findCustomerByCode(code) != null;
+    }   
 }

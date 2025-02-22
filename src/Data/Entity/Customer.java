@@ -13,7 +13,6 @@ import java.util.Random;
  * @author asus
  */
 public class Customer implements Serializable {
-
     private static final long serialVersionUID = 1L;
     private String customerCode;
     private String customerName;

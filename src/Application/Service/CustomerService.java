@@ -4,10 +4,9 @@
  */
 package Application.Service;
 
-import Data.CustomerDao.CustomerDAO;
+import Data.DAO.CustomerDAO;
 import Data.Entity.Customer;
 import Validator.CustomerValidator;
-import javax.xml.bind.Validator;
 
 /**
  *

@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Data.CustomerDao;
+package Data.DAO;
 
 import Data.Entity.Customer;
 import Data.File.FileManagement;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -31,7 +32,12 @@ public class CustomerDAO {
                 .findFirst()
                 .orElse(null);
     }
-
+public List<Customer> searchCustomersByName(String name)
+{
+    return customerManager.getObjects().stream()
+            .filter(c-> c.getCustomerName().contains(name))
+            .collect(Collectors.toList());
+}
     public List<Customer> getAllCustomers() {
         return customerManager.getObjects();
     }
