@@ -5,11 +5,7 @@ import static Constant.Regex.REGEX_CUSTOMER_NAME;
 import static Constant.Regex.REGEX_EMAIL;
 import static Constant.Regex.REGEX_PHONENUMBER;
 import Data.DAO.CustomerDAO;
-import Data.Entity.Customer;
-import Data.File.FileManagement;
 import Util.DataInput;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /*

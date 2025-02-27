@@ -47,10 +47,8 @@ public class FeastMenuDAO {
     }
     
     public boolean addFeastMenues(FeastMenues menu) {
-        // First read existing menus from file to ensure we have latest data
         readFeastMenu();
 
-        // Validate menu object
         if (menu == null) {
             return false;
         }

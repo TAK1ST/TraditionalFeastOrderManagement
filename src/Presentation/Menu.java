@@ -152,14 +152,16 @@ public class Menu {
 
         // Sort customers by name
         customers = customers.stream()
-                .sorted(Comparator.comparing(Customer::getCustomerName))
+                .sorted(Comparator.comparing(Customer::getCustomerName)
+//                        .thenComparing(Customer::getCustomerCode)
+                )
                 .collect(Collectors.toList());
 
         System.out.println("\nCustomers information:");
         System.out.println("----------------------------------------------------------------");
         System.out.printf("%-8s | %-20s | %-12s | %-25s%n",
                 "Code", "Customer Name", "Phone", "Email");
-        System.out.println("----------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
 
         for (Customer customer : customers) {
             System.out.printf("%-8s | %-20s | %-12s | %-25s%n",
@@ -168,7 +170,7 @@ public class Menu {
                     customer.getPhoneNumber(),
                     customer.getEmail());
         }
-        System.out.println("----------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
     }
 
     public static void displayOrderList() {
@@ -184,10 +186,10 @@ public class Menu {
                 .sorted(Comparator.comparing(Order::getEventDate))
                 .collect(Collectors.toList());
 
-        System.out.println("\n-------------------------------------------------------------------------");
+        System.out.println("\n--------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.printf("%-8s | %-10s | %-10s | %-8s | %-8s | %-6s | %-12s%n",
                 "ID", "Event date", "Customer", "Set Menu", "Price", "Tables", "Total Cost");
-        System.out.println("-------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------");
 
         for (Order order : orders) {
             FeastMenues menu = feastMenuDAO.getFeastMenuesBySetMenuCode(order.getSetMenuCode());

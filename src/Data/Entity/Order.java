@@ -11,7 +11,8 @@ import java.time.LocalDate;
  *
  * @author asus
  */
-public class Order implements Serializable{
+public class Order implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private String orderCode;
     private String customerCode;
@@ -20,11 +21,9 @@ public class Order implements Serializable{
     private LocalDate eventDate;
     private double totalCost;
 
-
-    public Order()
-    {
+    public Order() {
     }
-    
+
     public Order(String orderCode, String customerCode, String setMenuCode, int numberOfTables, LocalDate eventDate) {
         this.orderCode = orderCode;
         this.customerCode = customerCode;
@@ -82,13 +81,24 @@ public class Order implements Serializable{
     public void setEventDate(LocalDate eventDate) {
         this.eventDate = eventDate;
     }
-    
-        public double getTotalCost() {
+
+    public double getTotalCost() {
         return totalCost;
     }
 
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
-    
+
 }
+
+//Some way to do with LocalDate
+// soft with Comparator (dates, events: List()) - far to close
+//        dates.sort(Comparator.naturalOrder()); or
+//        events.sort(Comparator.comparing(Event::getDate));
+//      Comparator.reverseOrder() (close to far)
+//            List<LocalDate> sortedDates = dates.stream()
+//                                            .sorted()
+//                                            .collect(Collectors.toList());
+// result
+//        dates.forEach(System.out::println);
